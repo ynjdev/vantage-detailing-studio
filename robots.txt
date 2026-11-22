@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /inc/
+Disallow: /pay.php
+Disallow: /invoice.php
+Disallow: /notify.php
+Disallow: /return.php
+
+Sitemap: https://vantagedetailingstudio.co.za/sitemap.xml
