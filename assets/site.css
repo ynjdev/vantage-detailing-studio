@@ -190,3 +190,18 @@ footer.site{padding:56px 6vw 34px;border-top:1px solid var(--line)}
 /* ---------- REVEAL ---------- */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
+
+/* ---------- REVIEWS ---------- */
+.reviews{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  grid-template-columns:repeat(2,1fr)}
+@media(max-width:760px){.reviews{grid-template-columns:1fr}}
+.review{background:var(--panel);padding:30px 28px;display:flex;flex-direction:column;gap:14px}
+.review .stars{color:#f0a500;font-size:14px;letter-spacing:3px;line-height:1}
+.review blockquote{margin:0;font-size:15px;line-height:1.65;color:var(--paper)}
+.review .who{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.review .who b{color:var(--paper);font-weight:600}
+.review .who span{color:var(--steel)}
+.reviews-foot{margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:1px;text-transform:uppercase;color:var(--steel)}
+.reviews-foot b{color:#f0a500}
