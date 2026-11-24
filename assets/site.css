@@ -205,3 +205,10 @@ footer.site{padding:56px 6vw 34px;border-top:1px solid var(--line)}
 .reviews-foot{margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:11px;
   letter-spacing:1px;text-transform:uppercase;color:var(--steel)}
 .reviews-foot b{color:#f0a500}
+
+/* ---------- EMPTY SLOT HANDLING ----------
+   Placeholder notes never render for visitors. A slot whose image is missing
+   collapses the card it sits in; a section left with no visible cards hides
+   itself. Adding the image file brings everything back with no code change. */
+.imgslot .ph{display:none !important}
+.vds-empty{display:none !important}

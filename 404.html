@@ -364,5 +364,33 @@
   const b = document.getElementById('burger'), n = document.getElementById('navlinks');
   if (b) b.addEventListener('click', () => n.classList.toggle('open'));
 </script>
+<script>
+/* Collapse image slots with no file, then any section left empty. */
+(function(){
+  function kill(el){ if(el){ el.classList.add('vds-empty'); } }
+  function slotEmpty(slot){
+    var img = slot.querySelector('img');
+    if(!img || !img.getAttribute('src')) return true;
+    return img.complete && img.naturalWidth === 0;
+  }
+  function sweep(){
+    document.querySelectorAll('.imgslot').forEach(function(slot){
+      if(slotEmpty(slot)) kill(slot.closest('.card') || slot);
+    });
+    document.querySelectorAll('section').forEach(function(sec){
+      var cards = sec.querySelectorAll('.card');
+      if(!cards.length) return;
+      var alive = 0;
+      cards.forEach(function(c){ if(!c.classList.contains('vds-empty')) alive++; });
+      if(alive === 0) kill(sec);
+    });
+  }
+  document.querySelectorAll('.imgslot img').forEach(function(img){
+    img.addEventListener('error', function(){ kill(img.closest('.card') || img.closest('.imgslot')); sweep(); });
+  });
+  if(document.readyState === 'complete') sweep();
+  else window.addEventListener('load', sweep);
+})();
+</script>
 </body>
 </html>
